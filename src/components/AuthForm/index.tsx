@@ -4,6 +4,8 @@ import { ParrotIcon } from "../ParrotIcon";
 import { TextInput } from "../TextInput";
 import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
 import { FormEvent } from "react";
+import Heading from "../Heading";
+import Text from "../Text";
 
 interface AuthFormElements extends HTMLFormControlsCollection {
   user: HTMLInputElement;
@@ -43,10 +45,16 @@ function AuthForm({
   return (
     <div className="flex flex-col content-center items-center font-inter mt-16">
       <ParrotIcon width={88} height={200} color="#81D8F7" />
-      <h1 className="text-white text-[32px] mt-4 mb-2">Sysmap Parrot</h1>
-      <h1 className="text-gray-regular text-[18px]">{authFormTitle}</h1>
+      <Heading size="lg" className="mt-4 mb-2">
+        Sysmap Parrot
+      </Heading>
+      <Text size="lg" className="text-gray-regular">
+        {authFormTitle}
+      </Text>
       <form onSubmit={handleSubmit} className="flex flex-col min-w-login mt-12">
-        <label className="text-gray-light mb-2">Endereço de e-mail</label>
+        <Text size="lg" className="text-gray-light mb-2">
+          Endereço de e-mail
+        </Text>
         <TextInput.Root>
           <TextInput.Icon>
             <EnvelopeSimple color="#7C7C8A" size={24} />
@@ -54,10 +62,12 @@ function AuthForm({
           <TextInput.Input
             id="user"
             type="text"
-            placeholder="Digite seu email"
+            placeholder="Digite seu e-mail"
           ></TextInput.Input>
         </TextInput.Root>
-        <label className="text-gray-light mb-2 mt-3">Sua senha</label>
+        <Text size="lg" className="text-gray-light mb-2 mt-3">
+          Sua senha
+        </Text>
         <TextInput.Root>
           <TextInput.Icon>
             <Lock color="#7C7C8A" size={24} />
@@ -71,7 +81,7 @@ function AuthForm({
         <Button className="mt-9">{submitFormButtonText}</Button>
       </form>
       <Link to={routeName} className="text-gray-regular underline mt-9">
-        {authFormFooter}
+        <Text size="sm">{authFormFooter}</Text>
       </Link>
     </div>
   );
