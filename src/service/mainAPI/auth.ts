@@ -1,7 +1,7 @@
 import jwtDecode from "jwt-decode";
 import { api } from "./config";
 
-export async function login(auth: Auth) {
+export async function authenticate(auth: Auth) {
   try {
     const { data } = await api.post("/security/login", auth);
     const decodedToken = jwtDecode(data.accessToken) as UserToken;
@@ -24,4 +24,8 @@ export function getAuthHeader() {
   };
 
   return authHeader;
+}
+
+export function logOut() {
+  localStorage.clear();
 }

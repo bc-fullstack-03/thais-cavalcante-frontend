@@ -1,12 +1,13 @@
 import { useNavigate } from "react-router-dom";
 import AuthForm from "../../components/AuthForm";
-import { login } from "../../service/mainAPI/auth";
+import { authenticate } from "../../service/mainAPI/auth";
 
 function Login() {
   const navigate = useNavigate();
   async function handleLogin(auth: Auth) {
-    const loggedUser = await login(auth);
-    if (loggedUser) {
+    const loggedInUser = await authenticate(auth);
+
+    if (loggedInUser) {
       navigate("/home");
     }
   }

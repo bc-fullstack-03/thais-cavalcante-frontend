@@ -8,3 +8,9 @@ interface UserToken {
   profile: string;
   user: string;
 }
+
+interface AuthHeader {
+  headers: {
+    Authorization: string;
+  };
+}
