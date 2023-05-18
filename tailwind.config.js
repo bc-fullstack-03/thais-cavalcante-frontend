@@ -26,6 +26,14 @@ export default {
         light: "#E1E1E6",
       },
     },
+
+    fontSize: {
+      xs: "0.875rem",
+      sm: "1rem",
+      md: "1.125rem",
+      lg: "1.5rem",
+      xl: "2rem",
+    },
   },
   plugins: [],
 };
