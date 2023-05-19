@@ -1,4 +1,4 @@
-import { UserCircle } from "@phosphor-icons/react";
+import { UserCircle, SignOut } from "@phosphor-icons/react";
 import Heading from "../Heading";
 import Text from "../Text";
 import Button from "../Button";
@@ -19,11 +19,21 @@ function ProfileDetails() {
       <div className="border-b border-gray-regular pl-5 mt-4">
         <div className="w-5/6 flex justify-between">
           <Heading>Perfil</Heading>
-          <Button onClick={handleLogout} className="px-10">
-            Sair
-          </Button>
+          <div
+            onClick={handleLogout}
+            className="flex gap-1 items-center rounded-full px-5 hover:bg-cyan-regular group"
+          >
+            <SignOut
+              size={38}
+              weight="fill"
+              className="text-gray-light group-hover:text-gray-dark"
+            />
+            <Text className="text-white font-bold group-hover:text-gray-dark">
+              Sair
+            </Text>
+          </div>
         </div>
-        <div className="flex gap-1 items-center my-6">
+        <div className="flex gap-1 items-center mt-4 mb-6">
           <UserCircle size={64} weight="light" className="text-gray-light" />
           <Text className="text-white font-bold">{user}</Text>
         </div>

@@ -10,7 +10,7 @@ export default {
       inter: ["Inter", "sans-serif"],
     },
     minWidth: {
-      login: "25rem",
+      login: "23rem",
     },
 
     colors: {
@@ -28,11 +28,10 @@ export default {
     },
 
     fontSize: {
-      xs: "0.875rem",
-      sm: "1rem",
-      md: "1.125rem",
-      lg: "1.5rem",
-      xl: "2rem",
+      sm: "0.875rem",
+      md: "1rem",
+      lg: "1.25rem",
+      xl: "1.75rem",
     },
   },
   plugins: [],

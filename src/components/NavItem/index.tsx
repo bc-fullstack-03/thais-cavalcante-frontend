@@ -10,7 +10,7 @@ interface NavItemProps {
 function NavItemRoot({ children, route }: NavItemProps) {
   return (
     <Link to={route}>
-      <div className="flex items-center gap-3 mb-9 rounded-full hover:bg-cyan-regular group">
+      <div className="flex items-center gap-3 mb-9 pl-2 rounded-full hover:bg-cyan-regular group">
         {children}
       </div>
     </Link>

@@ -44,15 +44,15 @@ function AuthForm({
   }
   return (
     <div className="flex flex-col content-center items-center font-inter mt-16">
-      <ParrotIcon width={88} height={200} color="#81D8F7" />
+      <ParrotIcon width={80} height={182} color="#81D8F7" />
       <Heading size="lg" className="mt-4 mb-2">
         Sysmap Parrot
       </Heading>
-      <Text size="lg" className="text-gray-regular">
+      <Text size="md" className="text-gray-regular">
         {authFormTitle}
       </Text>
       <form onSubmit={handleSubmit} className="flex flex-col min-w-login mt-12">
-        <Text size="lg" className="text-gray-light mb-2">
+        <Text size="md" className="text-gray-light mb-2">
           Endereço de e-mail
         </Text>
         <TextInput.Root>
@@ -65,7 +65,7 @@ function AuthForm({
             placeholder="Digite seu e-mail"
           ></TextInput.Input>
         </TextInput.Root>
-        <Text size="lg" className="text-gray-light mb-2 mt-3">
+        <Text size="md" className="text-gray-light mb-2 mt-3">
           Sua senha
         </Text>
         <TextInput.Root>

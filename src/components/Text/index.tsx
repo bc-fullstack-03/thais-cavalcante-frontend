@@ -9,7 +9,7 @@ interface TextProps {
   className?: string;
 }
 
-function Text({ size = "xl", children, asChild, className }: TextProps) {
+function Text({ size = "lg", children, asChild, className }: TextProps) {
   const Comp = asChild ? Slot : "span";
 
   return (
@@ -17,10 +17,9 @@ function Text({ size = "xl", children, asChild, className }: TextProps) {
       className={clsx(
         "font-inter",
         {
-          "text-xs": size == "sm",
-          "text-sm": size == "md",
-          "text-md": size == "lg",
-          "text-lg": size == "xl",
+          "text-sm": size == "sm",
+          "text-md": size == "md",
+          "text-lg": size == "lg",
         },
         className
       )}
