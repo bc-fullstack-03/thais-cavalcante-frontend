@@ -8,3 +8,12 @@ export async function getPosts(authHeader: AuthHeader) {
     alert("Erro ao obter Feed.");
   }
 }
+
+export async function createPost(post: FormData, authHeader: AuthHeader) {
+  try {
+    const { data } = await api.post("/posts", post, authHeader);
+    return data;
+  } catch (err) {
+    alert("Erro ao tentar criar post");
+  }
+}
