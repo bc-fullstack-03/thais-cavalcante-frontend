@@ -1,7 +1,12 @@
+import { FeedProvider } from "./contexts/FeedContext";
 import AppRoutes from "./routes";
 
 function App() {
-  return <AppRoutes />;
+  return (
+    <FeedProvider>
+      <AppRoutes />
+    </FeedProvider>
+  );
 }
 
 export default App;

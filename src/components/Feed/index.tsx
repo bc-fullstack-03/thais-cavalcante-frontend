@@ -1,24 +1,16 @@
 import { UserCircle } from "@phosphor-icons/react";
 import PostItem from "../PostItem/PostItem";
-import { useState, useEffect } from "react";
+import { useEffect, useContext } from "react";
 import Text from "../Text";
 import Heading from "../Heading";
-import { getAuthHeader } from "../../service/mainAPI/auth";
-import { getPosts } from "../../service/mainAPI/post";
+import { FeedContext } from "../../contexts/FeedContext";
 
 function Feed() {
   const user = localStorage.getItem("user");
-
-  const [posts, setPosts] = useState<Post[]>([] as Post[]);
-  const authHeader = getAuthHeader();
-
-  async function fetchPosts() {
-    const posts = await getPosts(authHeader);
-    setPosts(posts);
-  }
+  const { feed, getFeed } = useContext(FeedContext);
 
   useEffect(() => {
-    fetchPosts();
+    getFeed();
   }, []);
 
   return (
@@ -30,7 +22,7 @@ function Feed() {
           <Text className="text-white font-bold">{user}</Text>
         </div>
       </div>
-      {posts && posts.map((post: Post) => <PostItem post={post} />)}
+      {feed && feed.map((post: Post) => <PostItem post={post} />)}
     </div>
   );
 }
