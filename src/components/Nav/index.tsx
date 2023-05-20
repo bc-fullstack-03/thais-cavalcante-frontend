@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { House, User, UsersThree } from "@phosphor-icons/react";
 import { ParrotIcon } from "../ParrotIcon";
-import Button from "../Button";
 import Text from "../Text";
 import { NavItem } from "../NavItem";
+import * as Dialog from "@radix-ui/react-dialog";
+import CreatePostButton from "../CreatePostButton";
+import CreatePostModal from "../CreatePostModal";
 
 function Nav() {
   const navItems = [
@@ -23,6 +26,8 @@ function Nav() {
     },
   ];
 
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div className="h-screen basis-1/6 border-r border-gray-regular font-inter flex flex-col px-5 pt-4">
       <div className="flex items-center gap-5 mb-9 pl-2">
@@ -37,7 +42,10 @@ function Nav() {
           </Text>
         </NavItem.Root>
       ))}
-      <Button>Novo Post</Button>
+      <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
+        <CreatePostButton />
+        <CreatePostModal setIsModalOpen={setIsModalOpen} />
+      </Dialog.Root>
     </div>
   );
 }
