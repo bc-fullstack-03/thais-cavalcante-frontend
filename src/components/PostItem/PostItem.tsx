@@ -22,9 +22,16 @@ function PostItem({ post }: PostItemProps) {
         <UserCircle size={64} weight="light" className="text-gray-light" />
         <div className="flex flex-col gap-5">
           <Text className="text-white font-bold mt-3">{post.profile.name}</Text>
-          <Text size="md" className="text-gray-light">
-            {post.description}
-          </Text>
+          {post.image ? (
+            <img
+              src={`http://localhost:9000/${post.description}`}
+              className="max-w-lg rounded-lg"
+            ></img>
+          ) : (
+            <Text size="md" className="text-gray-light">
+              {post.description}
+            </Text>
+          )}
           <footer className="flex items-center">
             <Chat size={32} className="text-gray-light" />
             <Text size="md" className="text-gray-light ml-2 mr-14">
