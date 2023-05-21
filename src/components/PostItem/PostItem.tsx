@@ -1,6 +1,7 @@
 import { UserCircle, Chat, Heart } from "@phosphor-icons/react";
 import { useState } from "react";
 import Text from "../Text";
+import { Link } from "react-router-dom";
 
 interface PostItemProps {
   post: Post;
@@ -33,10 +34,12 @@ function PostItem({ post }: PostItemProps) {
             </Text>
           )}
           <footer className="flex items-center">
-            <Chat size={32} className="text-gray-light" />
-            <Text size="md" className="text-gray-light ml-2 mr-14">
-              {post.comments.length}
-            </Text>
+            <Link to={`/post/${post._id}`} className="flex items-center">
+              <Chat size={32} className="text-gray-light" />
+              <Text size="md" className="text-gray-light ml-2 mr-14">
+                {post.comments.length}
+              </Text>
+            </Link>
             <Heart
               size={32}
               className={isHovered ? "text-red-600" : "text-gray-light"}
