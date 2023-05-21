@@ -1,6 +1,6 @@
 import { useParams } from "react-router-dom";
 import MainScreen from "../../components/MainScreen";
-import PostItem from "../../components/PostItem/PostItem";
+import PostItem from "../../components/PostItem";
 import { getAuthHeader } from "../../service/mainAPI/auth";
 import { useEffect, useState } from "react";
 import Heading from "../../components/Heading";

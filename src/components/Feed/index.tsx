@@ -1,5 +1,5 @@
 import { UserCircle } from "@phosphor-icons/react";
-import PostItem from "../PostItem/PostItem";
+import PostItem from "../PostItem";
 import { useEffect, useContext } from "react";
 import Text from "../Text";
 import Heading from "../Heading";
