@@ -17,3 +17,12 @@ export async function createPost(post: FormData, authHeader: AuthHeader) {
     alert("Erro ao tentar criar post");
   }
 }
+
+export async function getPost(id: string, authHeader: AuthHeader) {
+  try {
+    const { data } = await api.get(`/posts/${id}`, authHeader);
+    return data;
+  } catch (err) {
+    alert("Erro ao obter Feed.");
+  }
+}
