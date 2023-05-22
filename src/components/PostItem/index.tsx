@@ -11,7 +11,6 @@ interface PostItemProps {
 
 function PostItem({ post, onPostLiked }: PostItemProps) {
   const loggedInUser = localStorage.getItem("profile") as string;
-  console.log(loggedInUser);
 
   const isPostLiked = post.likes.includes(loggedInUser);
   const authHeader = getAuthHeader();
