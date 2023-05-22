@@ -6,6 +6,12 @@ interface CommentProps {
 }
 
 function Comment({ comment }: CommentProps) {
+  const loggedInUser = localStorage.getItem("profile");
+
+  const isCommentLiked = comment.likes.find(
+    (user: string) => user == loggedInUser
+  );
+
   return (
     <>
       {comment && (
@@ -20,8 +26,18 @@ function Comment({ comment }: CommentProps) {
                 {comment.description}
               </Text>
               <footer className="flex items-center">
-                <Heart size={32} className="text-gray-light" weight="regular" />
-                <Text size="md" className="text-gray-light ml-2">
+                <div className="hover:bg-gray-light/20 rounded-full p-1">
+                  <Heart
+                    size={32}
+                    className={
+                      isCommentLiked
+                        ? "text-red-600"
+                        : "text-gray-light hover:text-red-600"
+                    }
+                    weight={isCommentLiked ? "fill" : "regular"}
+                  />
+                </div>
+                <Text size="md" className="text-gray-light ml-1">
                   {comment.likes.length}
                 </Text>
               </footer>
