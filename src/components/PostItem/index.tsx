@@ -1,5 +1,4 @@
 import { UserCircle, Chat, Heart } from "@phosphor-icons/react";
-import { useState } from "react";
 import Text from "../Text";
 import { Link } from "react-router-dom";
 
@@ -8,15 +7,10 @@ interface PostItemProps {
 }
 
 function PostItem({ post }: PostItemProps) {
-  const [isHovered, setIsHovered] = useState<boolean>(false);
+  const loggedInUser = localStorage.getItem("profile");
 
-  const handleMouseEnter = () => {
-    setIsHovered(true);
-  };
+  const isPostLiked = post.likes.find((user) => user == loggedInUser);
 
-  const handleMouseLeave = () => {
-    setIsHovered(false);
-  };
   return (
     <div className="border-b border-gray-regular pl-5 py-5">
       <div className="flex gap-1">
@@ -34,19 +28,23 @@ function PostItem({ post }: PostItemProps) {
             </Text>
           )}
           <footer className="flex items-center">
-            <Link to={`/post/${post._id}`} className="flex items-center">
+            <Link to={`/post/${post._id}`} className="flex items-center mr-14">
               <Chat size={32} className="text-gray-light" />
-              <Text size="md" className="text-gray-light ml-2 mr-14">
+              <Text size="md" className="text-gray-light ml-2">
                 {post.comments.length}
               </Text>
             </Link>
-            <Heart
-              size={32}
-              className={isHovered ? "text-red-600" : "text-gray-light"}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-              weight={isHovered ? "fill" : "regular"}
-            />
+            <div className="hover:bg-gray-light/20 rounded-full p-1">
+              <Heart
+                size={32}
+                className={
+                  isPostLiked
+                    ? "text-red-600"
+                    : "text-gray-light hover:text-red-600"
+                }
+                weight={isPostLiked ? "fill" : "regular"}
+              />
+            </div>
             <Text size="md" className="text-gray-light ml-2">
               {post.likes.length}
             </Text>
