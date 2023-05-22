@@ -1,15 +1,31 @@
 import { UserCircle, Chat, Heart } from "@phosphor-icons/react";
 import Text from "../Text";
 import { Link } from "react-router-dom";
+import { getAuthHeader } from "../../service/mainAPI/auth";
+import { likePost, unlikePost } from "../../service/mainAPI/post";
 
 interface PostItemProps {
   post: Post;
+  onPostLiked: () => void;
 }
 
-function PostItem({ post }: PostItemProps) {
-  const loggedInUser = localStorage.getItem("profile");
+function PostItem({ post, onPostLiked }: PostItemProps) {
+  const loggedInUser = localStorage.getItem("profile") as string;
+  console.log(loggedInUser);
 
-  const isPostLiked = post.likes.find((user) => user == loggedInUser);
+  const isPostLiked = post.likes.includes(loggedInUser);
+  const authHeader = getAuthHeader();
+  const postId = post._id;
+
+  async function handleLikePost() {
+    if (isPostLiked) {
+      await unlikePost(postId, authHeader);
+    } else {
+      await likePost(postId, authHeader);
+    }
+
+    onPostLiked();
+  }
 
   return (
     <div className="border-b border-gray-regular pl-5 py-5">
@@ -34,7 +50,10 @@ function PostItem({ post }: PostItemProps) {
                 {post.comments.length}
               </Text>
             </Link>
-            <div className="hover:bg-gray-light/20 rounded-full p-1">
+            <div
+              onClick={handleLikePost}
+              className="hover:bg-gray-light/20 rounded-full p-1"
+            >
               <Heart
                 size={32}
                 className={
@@ -45,7 +64,7 @@ function PostItem({ post }: PostItemProps) {
                 weight={isPostLiked ? "fill" : "regular"}
               />
             </div>
-            <Text size="md" className="text-gray-light ml-2">
+            <Text size="md" className="text-gray-light ml-1">
               {post.likes.length}
             </Text>
           </footer>

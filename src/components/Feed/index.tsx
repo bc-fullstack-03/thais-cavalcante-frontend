@@ -23,7 +23,9 @@ function Feed() {
         </div>
       </div>
       {feed &&
-        feed.map((post: Post) => <PostItem post={post} key={post._id} />)}
+        feed.map((post: Post) => (
+          <PostItem post={post} key={post._id} onPostLiked={getFeed} />
+        ))}
     </div>
   );
 }
