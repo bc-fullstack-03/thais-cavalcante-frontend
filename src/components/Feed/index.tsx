@@ -22,7 +22,8 @@ function Feed() {
           <Text className="text-white font-bold">{user}</Text>
         </div>
       </div>
-      {feed && feed.map((post: Post) => <PostItem post={post} />)}
+      {feed &&
+        feed.map((post: Post) => <PostItem post={post} key={post._id} />)}
     </div>
   );
 }

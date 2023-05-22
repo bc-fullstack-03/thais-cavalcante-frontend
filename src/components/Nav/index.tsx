@@ -35,7 +35,7 @@ function Nav() {
         <Text className="text-white font-bold">Parrot</Text>
       </div>
       {navItems.map((navItem) => (
-        <NavItem.Root route={navItem.route}>
+        <NavItem.Root route={navItem.route} key={navItem.route}>
           <NavItem.Icon>{navItem.icon}</NavItem.Icon>
           <Text className="text-white font-bold group-hover:text-gray-dark">
             {navItem.text}

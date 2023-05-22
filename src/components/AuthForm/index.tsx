@@ -76,6 +76,7 @@ function AuthForm({
             id="password"
             type="password"
             placeholder="Digite sua senha"
+            autoComplete="off"
           ></TextInput.Input>
         </TextInput.Root>
         <Button className="mt-9">{submitFormButtonText}</Button>

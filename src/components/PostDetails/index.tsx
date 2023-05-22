@@ -39,7 +39,7 @@ function PostDetails() {
             .slice()
             .reverse()
             .map((comment) => (
-              <Comment comment={comment} />
+              <Comment comment={comment} key={comment._id} />
             ))}
         </>
       )}

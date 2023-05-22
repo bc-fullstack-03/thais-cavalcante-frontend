@@ -53,9 +53,7 @@ function CreatePostModal({ setIsModalOpen }: CreatePostModalProps) {
       <Dialog.Overlay className="bg-gray-dark/60 inset-0 fixed" />
       <Dialog.Content className="fixed bg-black pb-8 px-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-96 shadow-lg shadow-black/25">
         <div className="flex justify-between">
-          <Dialog.Title className="mt-8">
-            <Heading>Novo Post</Heading>
-          </Dialog.Title>
+          <Heading className="mt-8">Novo Post</Heading>
           <Dialog.Close>
             <X size={24} className="text-gray-light text-right" />
           </Dialog.Close>
