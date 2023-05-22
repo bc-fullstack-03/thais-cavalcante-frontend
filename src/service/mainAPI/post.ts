@@ -23,6 +23,25 @@ export async function getPost(id: string, authHeader: AuthHeader) {
     const { data } = await api.get(`/posts/${id}`, authHeader);
     return data;
   } catch (err) {
-    alert("Erro ao obter Feed.");
+    alert("Erro ao obter Post.");
+  }
+}
+
+export async function createCommentToPost(
+  postId: string,
+  commentDescription: string,
+  authHeader: AuthHeader
+) {
+  try {
+    const { data } = await api.post(
+      `/posts/${postId}/comments`,
+      {
+        description: commentDescription,
+      },
+      authHeader
+    );
+    return data;
+  } catch (err) {
+    alert("Erro ao tentar criar comentário");
   }
 }
