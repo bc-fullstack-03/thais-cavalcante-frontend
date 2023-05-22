@@ -1,16 +1,30 @@
 import { UserCircle, Heart } from "@phosphor-icons/react";
 import Text from "../Text";
+import { getAuthHeader } from "../../service/mainAPI/auth";
+import { likePostComment, unlikePostComment } from "../../service/mainAPI/post";
 
 interface CommentProps {
   comment: Comment;
+  onCommentLiked: () => void;
 }
 
-function Comment({ comment }: CommentProps) {
-  const loggedInUser = localStorage.getItem("profile");
+function Comment({ comment, onCommentLiked }: CommentProps) {
+  const loggedInUser = localStorage.getItem("profile") as string;
+  const authHeader = getAuthHeader();
+  const postId = comment.post;
+  const commentId = comment._id;
 
-  const isCommentLiked = comment.likes.find(
-    (user: string) => user == loggedInUser
-  );
+  const isCommentLiked = comment.likes.includes(loggedInUser);
+
+  async function handleLikeComment() {
+    if (isCommentLiked) {
+      await unlikePostComment(postId, commentId, authHeader);
+    } else {
+      await likePostComment(postId, commentId, authHeader);
+    }
+
+    onCommentLiked();
+  }
 
   return (
     <>
@@ -26,7 +40,10 @@ function Comment({ comment }: CommentProps) {
                 {comment.description}
               </Text>
               <footer className="flex items-center">
-                <div className="hover:bg-gray-light/20 rounded-full p-1">
+                <div
+                  className="hover:bg-gray-light/20 rounded-full p-1"
+                  onClick={handleLikeComment}
+                >
                   <Heart
                     size={32}
                     className={

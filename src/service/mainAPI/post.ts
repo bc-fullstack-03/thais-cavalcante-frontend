@@ -61,3 +61,35 @@ export async function unlikePost(postId: string, authHeader: AuthHeader) {
     alert("Erro ao remover curtida do post");
   }
 }
+
+export async function likePostComment(
+  postId: string,
+  commentId: string,
+  authHeader: AuthHeader
+) {
+  try {
+    await api.post(
+      `/posts/${postId}/comments/${commentId}/like`,
+      null,
+      authHeader
+    );
+  } catch (err) {
+    alert("Erro ao curtir comentário");
+  }
+}
+
+export async function unlikePostComment(
+  postId: string,
+  commentId: string,
+  authHeader: AuthHeader
+) {
+  try {
+    await api.post(
+      `/posts/${postId}/comments/${commentId}/unlike`,
+      null,
+      authHeader
+    );
+  } catch (err) {
+    alert("Erro ao remover curtida do comentário");
+  }
+}

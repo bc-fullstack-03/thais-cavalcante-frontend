@@ -39,7 +39,11 @@ function PostDetails() {
             .slice()
             .reverse()
             .map((comment) => (
-              <Comment comment={comment} key={comment._id} />
+              <Comment
+                comment={comment}
+                onCommentLiked={handlePostChanged}
+                key={comment._id}
+              />
             ))}
         </>
       )}

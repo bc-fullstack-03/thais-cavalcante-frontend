@@ -4,5 +4,6 @@ interface Comment {
   profile: {
     name: string;
   };
-  likes: Array;
+  likes: string[];
+  post: string;
 }
