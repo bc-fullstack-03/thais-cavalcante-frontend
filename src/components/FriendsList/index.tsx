@@ -7,10 +7,14 @@ import { getProfiles } from "../../service/mainAPI/profile";
 function FriendsList() {
   const authHeader = getAuthHeader();
   const [profiles, setProfiles] = useState<Profile[]>([] as Profile[]);
+  const loggedInUser = localStorage.getItem("profile");
 
   async function fetchProfiles() {
-    const profiles = await getProfiles(authHeader);
-    setProfiles(profiles);
+    const allProfiles = await getProfiles(authHeader);
+    const friends = allProfiles.filter(
+      (profile: Profile) => profile._id != loggedInUser
+    );
+    setProfiles(friends);
   }
 
   useEffect(() => {

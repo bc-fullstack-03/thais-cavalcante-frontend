@@ -1,6 +1,7 @@
 interface Profile {
+  _id: string;
   name: string;
   user: string;
-  following: string;
-  followers: string;
+  following: string[];
+  followers: string[];
 }
