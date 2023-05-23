@@ -1,12 +1,28 @@
 import { UserCircle } from "@phosphor-icons/react";
 import Text from "../Text";
 import Button from "../Button";
+import { getAuthHeader } from "../../service/mainAPI/auth";
+import { followProfile } from "../../service/mainAPI/profile";
+import clsx from "clsx";
 
 interface ProfileItemProps {
   profile: Profile;
+  onUserFollowed: () => void;
 }
 
-function ProfileItem({ profile }: ProfileItemProps) {
+function ProfileItem({ profile, onUserFollowed }: ProfileItemProps) {
+  const loggedInUser = localStorage.getItem("profile") as string;
+
+  const isProfileFollowed = profile.followers.includes(loggedInUser);
+  const authHeader = getAuthHeader();
+  const profileId = profile._id;
+
+  async function handlefollowProfile() {
+    await followProfile(profileId, authHeader);
+
+    onUserFollowed();
+  }
+
   return (
     <div className="border-b border-gray-regular pl-5">
       <div className="flex gap-1 items-center mt-6 mb-2">
@@ -25,7 +41,15 @@ function ProfileItem({ profile }: ProfileItemProps) {
           </Text>
         )}
       </div>
-      <Button className="w-80 mb-6">Seguir</Button>
+      <Button
+        disabled={isProfileFollowed}
+        className={clsx("w-80 mb-6", {
+          "bg-gray-regular hover:bg-gray-regular": isProfileFollowed,
+        })}
+        onClick={handlefollowProfile}
+      >
+        {isProfileFollowed ? "Seguindo" : "Seguir"}
+      </Button>
     </div>
   );
 }
