@@ -4,7 +4,7 @@ import { getPosts } from "../service/mainAPI/post";
 
 interface FeedContextData {
   feed: Post[];
-  getFeed: () => Promise<void>;
+  getFeed: (page?: number) => Promise<void>;
 }
 
 interface FeedProviderProps {
@@ -19,9 +19,9 @@ const FeedContext = createContext<FeedContextData>({
 const FeedProvider: React.FC<FeedProviderProps> = ({ children }) => {
   const [feed, setFeed] = useState<Post[]>([] as Post[]);
 
-  const getFeed = async () => {
+  const getFeed = async (page?: number) => {
     const authHeader = getAuthHeader();
-    const posts = await getPosts(authHeader);
+    const posts = await getPosts(page || 0, authHeader);
     setFeed(posts);
   };
 
