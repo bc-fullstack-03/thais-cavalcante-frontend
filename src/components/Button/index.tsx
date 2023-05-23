@@ -5,13 +5,19 @@ interface ButtonProps {
   className?: string;
   onClick?: () => void;
   disabled?: boolean;
+  type?: "button" | "submit" | "reset";
 }
 
-function Button({ children, className, onClick, disabled }: ButtonProps) {
+function Button({ children, className, onClick, disabled, type }: ButtonProps) {
   const buttonClasses = `bg-cyan-regular h-10 font-inter text-md font-semibold transition-colors hover:bg-cyan-light rounded ${className}`;
 
   return (
-    <button className={buttonClasses} onClick={onClick} disabled={disabled}>
+    <button
+      className={buttonClasses}
+      onClick={onClick}
+      disabled={disabled}
+      type={type}
+    >
       {children}
     </button>
   );

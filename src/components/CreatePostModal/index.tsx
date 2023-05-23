@@ -4,7 +4,7 @@ import Text from "../Text";
 import { TextInput } from "../TextInput";
 import Button from "../Button";
 import Heading from "../Heading";
-import { X } from "@phosphor-icons/react";
+import { Image, TextAlignLeft, X } from "@phosphor-icons/react";
 import { FormEvent } from "react";
 import { getAuthHeader } from "../../service/mainAPI/auth";
 import Dropzone from "../Dropzone";
@@ -26,8 +26,20 @@ interface PostFormElement extends HTMLFormElement {
 
 function CreatePostModal({ setIsModalOpen }: CreatePostModalProps) {
   const { getFeed } = useContext(FeedContext);
+  const [isTextPost, setIsTextPost] = useState<boolean>(false);
+  const [isImagePost, setIsImagePost] = useState<boolean>(false);
   const [selectedFile, setSelectedFile] = useState<File>();
   const authHeader = getAuthHeader();
+
+  function handleIsTextPost() {
+    setIsTextPost(true);
+    setIsImagePost(false);
+  }
+
+  function handleIsImagePost() {
+    setIsImagePost(true);
+    setIsTextPost(false);
+  }
 
   async function handleCreatePost(event: FormEvent<PostFormElement>) {
     event.preventDefault();
@@ -35,9 +47,11 @@ function CreatePostModal({ setIsModalOpen }: CreatePostModalProps) {
 
     const formData = new FormData();
     formData.append("title", form.elements.title.value);
-    formData.append("description", form.elements.description.value);
     if (selectedFile) {
       formData.append("file", selectedFile);
+      formData.append("description", "");
+    } else {
+      formData.append("description", form.elements.description.value);
     }
 
     const post = await createPost(formData, authHeader);
@@ -46,6 +60,9 @@ function CreatePostModal({ setIsModalOpen }: CreatePostModalProps) {
     }
 
     await getFeed();
+    setSelectedFile(undefined);
+    setIsTextPost(false);
+    setIsImagePost(false);
   }
 
   return (
@@ -69,21 +86,52 @@ function CreatePostModal({ setIsModalOpen }: CreatePostModalProps) {
               placeholder="Digite o título do post"
             ></TextInput.Input>
           </TextInput.Root>
-          <Text size="md" className="text-gray-light mb-2 mt-3">
-            Descrição
+          <Text size="md" className="text-gray-light my-2">
+            Tipo do post
           </Text>
-          <TextInput.Root>
-            <TextInput.Input
-              id="description"
-              type="text"
-              placeholder="Digite o conteúdo do post"
-            ></TextInput.Input>
-          </TextInput.Root>
-          <Text size="md" className="text-gray-light mb-2 mt-3">
-            Imagem
-          </Text>
-          <Dropzone onFileUploaded={setSelectedFile} />
-          <Button className="mt-9">Criar post</Button>
+          <div className="flex justify-between">
+            <Button
+              type="button"
+              className="flex gap-2 items-center px-9"
+              onClick={handleIsTextPost}
+            >
+              <TextAlignLeft size={24} />
+              <Text size="sm">Texto</Text>
+            </Button>
+            <Button
+              type="button"
+              className="flex gap-2 items-center px-9"
+              onClick={handleIsImagePost}
+            >
+              <Image size={24} />
+              <Text size="sm">Imagem</Text>
+            </Button>
+          </div>
+          {isTextPost && (
+            <>
+              <Text size="md" className="text-gray-light mb-2 mt-3">
+                Descrição
+              </Text>
+              <TextInput.Root>
+                <TextInput.Input
+                  id="description"
+                  type="text"
+                  placeholder="Digite o conteúdo do post"
+                ></TextInput.Input>
+              </TextInput.Root>
+            </>
+          )}
+          {isImagePost && (
+            <>
+              <Text size="md" className="text-gray-light mb-2 mt-3">
+                Imagem
+              </Text>
+              <Dropzone onFileUploaded={setSelectedFile} />
+            </>
+          )}
+          <Button type="submit" className="mt-9">
+            Criar post
+          </Button>
         </form>
       </Dialog.Content>
     </Dialog.Portal>
