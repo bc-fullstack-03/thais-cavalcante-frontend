@@ -22,7 +22,7 @@ function Dropzone({ onFileUploaded }: DropzoneProps) {
     [onFileUploaded]
   );
 
-  const { getRootProps, getInputProps, isDragActive } = useDropzone({ onDrop });
+  const { getRootProps, getInputProps } = useDropzone({ onDrop });
   return (
     <div {...getRootProps()}>
       <input {...getInputProps()} />

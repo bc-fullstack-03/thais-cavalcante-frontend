@@ -29,7 +29,7 @@ function CreateComment({ onCommentCreated }: CreateCommentProps) {
   }
 
   return (
-    <div className="pl-5 mt-4 w-1/2">
+    <div className="px-5 mt-4 w-full md:w-3/4">
       <Heading className="mb-5">Adicionar comentário</Heading>
       <TextInput.Root>
         <TextInput.Input
@@ -40,7 +40,7 @@ function CreateComment({ onCommentCreated }: CreateCommentProps) {
         />
       </TextInput.Root>
       <div className="text-end">
-        <Button onClick={handleCreateComment} className="w-1/2 mt-5">
+        <Button onClick={handleCreateComment} className="w-1/3 mt-5">
           Adicionar
         </Button>
       </div>

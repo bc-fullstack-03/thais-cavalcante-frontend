@@ -29,23 +29,25 @@ function Nav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="basis-6/6 flex h-12 mt-6 flex-row font-inter md:h-screen md:border-r md:basis-1/6 md:border-gray-regular md:flex md:flex-col md:mt-0 md:justify-start md:px-5 md:pt-4">
-      <div className="hidden md:flex items-center gap-5 mb-9 pl-2">
+    <div className="basis-6/6 flex mt-2 flex-col justify-between items-center pr-5 font-inter md:h-screen md:border-r md:basis-1/6 md:border-gray-regular md:mt-0 md:justify-start md:items-start md:px-5 md:pt-4">
+      <div className="flex items-center gap-5 mb-2 md:mb-9 pl-2">
         <ParrotIcon width={30} height={68} color="#E1E1E6" />
         <Text className="text-white font-bold">Parrot</Text>
       </div>
-      {navItems.map((navItem) => (
-        <NavItem.Root route={navItem.route} key={navItem.route}>
-          <NavItem.Icon>{navItem.icon}</NavItem.Icon>
-          <Text className="hidden md:block text-white font-bold group-hover:text-gray-dark">
-            {navItem.text}
-          </Text>
-        </NavItem.Root>
-      ))}
-      <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
-        <CreatePostButton />
-        <CreatePostModal setIsModalOpen={setIsModalOpen} />
-      </Dialog.Root>
+      <div className="flex justify-between md:flex-col w-full">
+        {navItems.map((navItem) => (
+          <NavItem.Root route={navItem.route} key={navItem.route}>
+            <NavItem.Icon>{navItem.icon}</NavItem.Icon>
+            <Text className="hidden md:block text-white font-bold group-hover:text-gray-dark">
+              {navItem.text}
+            </Text>
+          </NavItem.Root>
+        ))}
+        <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
+          <CreatePostButton />
+          <CreatePostModal setIsModalOpen={setIsModalOpen} />
+        </Dialog.Root>
+      </div>
     </div>
   );
 }
