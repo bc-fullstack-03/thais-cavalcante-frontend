@@ -2,7 +2,7 @@ import { UserCircle, SignOut } from "@phosphor-icons/react";
 import Heading from "../Heading";
 import Text from "../Text";
 import { useNavigate } from "react-router-dom";
-import { logOut } from "../../service/mainAPI/auth";
+import { logOut } from "../../service/auth";
 
 function ProfileDetails() {
   const user = localStorage.getItem("user");

@@ -6,9 +6,9 @@ import Button from "../Button";
 import Heading from "../Heading";
 import { Image, TextAlignLeft, X } from "@phosphor-icons/react";
 import { FormEvent } from "react";
-import { getAuthHeader } from "../../service/mainAPI/auth";
+import { getAuthHeader } from "../../service/auth";
 import Dropzone from "../Dropzone";
-import { createPost } from "../../service/mainAPI/post";
+import { createPost } from "../../service/post";
 import { FeedContext } from "../../contexts/FeedContext";
 
 interface CreatePostModalProps {

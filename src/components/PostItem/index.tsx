@@ -1,8 +1,8 @@
 import { UserCircle, Chat, Heart } from "@phosphor-icons/react";
 import Text from "../Text";
 import { Link } from "react-router-dom";
-import { getAuthHeader } from "../../service/mainAPI/auth";
-import { likePost, unlikePost } from "../../service/mainAPI/post";
+import { getAuthHeader } from "../../service/auth";
+import { likePost, unlikePost } from "../../service/post";
 
 interface PostItemProps {
   post: Post;

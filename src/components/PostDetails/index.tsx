@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
 import PostItem from "../../components/PostItem";
-import { getAuthHeader } from "../../service/mainAPI/auth";
+import { getAuthHeader } from "../../service/auth";
 import { useEffect, useState } from "react";
 import Heading from "../../components/Heading";
 import Comment from "../../components/Comment";
-import { getPost } from "../../service/mainAPI/post";
+import { getPost } from "../../service/post";
 import CreateComment from "../CreateComment";
 
 function PostDetails() {

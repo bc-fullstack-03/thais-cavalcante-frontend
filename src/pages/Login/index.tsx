@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import AuthForm from "../../components/AuthForm";
-import { authenticate } from "../../service/mainAPI/auth";
+import { authenticate } from "../../service/auth";
 
 function Login() {
   const navigate = useNavigate();

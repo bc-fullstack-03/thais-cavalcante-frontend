@@ -1,8 +1,8 @@
 import { UserCircle } from "@phosphor-icons/react";
 import Text from "../Text";
 import Button from "../Button";
-import { getAuthHeader } from "../../service/mainAPI/auth";
-import { followProfile } from "../../service/mainAPI/profile";
+import { getAuthHeader } from "../../service/auth";
+import { followProfile } from "../../service/profile";
 import clsx from "clsx";
 
 interface ProfileItemProps {

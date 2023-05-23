@@ -1,7 +1,7 @@
 import { UserCircle, Heart } from "@phosphor-icons/react";
 import Text from "../Text";
-import { getAuthHeader } from "../../service/mainAPI/auth";
-import { likePostComment, unlikePostComment } from "../../service/mainAPI/post";
+import { getAuthHeader } from "../../service/auth";
+import { likePostComment, unlikePostComment } from "../../service/post";
 
 interface CommentProps {
   comment: Comment;

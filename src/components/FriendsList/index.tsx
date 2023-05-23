@@ -1,8 +1,8 @@
 import { useEffect, useState } from "react";
 import Heading from "../Heading";
-import { getAuthHeader } from "../../service/mainAPI/auth";
+import { getAuthHeader } from "../../service/auth";
 import ProfileItem from "../ProfileItem";
-import { getProfiles } from "../../service/mainAPI/profile";
+import { getProfiles } from "../../service/profile";
 
 function FriendsList() {
   const authHeader = getAuthHeader();
