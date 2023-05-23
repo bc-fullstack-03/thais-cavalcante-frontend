@@ -1,7 +1,4 @@
-import { getAuthHeader } from "./auth";
 import { api } from "./config";
-
-const authHeader = getAuthHeader();
 
 export async function createUser(auth: Auth) {
   try {
