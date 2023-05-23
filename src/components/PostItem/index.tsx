@@ -34,8 +34,8 @@ function PostItem({ post, onPostLiked }: PostItemProps) {
           <Text className="text-white font-bold mt-3">{post.profile.name}</Text>
           {post.image ? (
             <img
-              src={`http://localhost:9000/${post.description}`}
-              className="max-w-lg rounded-lg"
+              src={post.description}
+              className="max-w-[270px] md:max-w-md lg:max-w-lg rounded-lg"
             ></img>
           ) : (
             <Text size="md" className="text-gray-light">

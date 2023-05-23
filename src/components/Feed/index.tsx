@@ -43,7 +43,10 @@ function Feed() {
   const showPrevButton = currentPage != 0;
 
   return (
-    <div ref={containerRef} className="basis-5/6 overflow-y-auto scroll-smooth">
+    <div
+      ref={containerRef}
+      className="w-screen md:basis-5/6 overflow-y-auto scroll-smooth"
+    >
       <div className="border-b border-gray-regular pl-5 mt-4">
         <Heading>Página Inicial</Heading>
         <div className="flex gap-1 items-center my-6">
@@ -64,7 +67,7 @@ function Feed() {
           <CaretCircleLeft
             size={48}
             weight="fill"
-            className="text-cyan-regular"
+            className="text-cyan-regular cursor-pointer"
             onClick={handlePrevPage}
           >
             Prev page
@@ -74,7 +77,7 @@ function Feed() {
           <CaretCircleRight
             size={48}
             weight="fill"
-            className="text-cyan-regular"
+            className="text-cyan-regular cursor-pointer"
             onClick={handleNextPage}
           >
             Next page

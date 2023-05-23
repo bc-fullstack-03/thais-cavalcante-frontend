@@ -29,15 +29,15 @@ function Nav() {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="h-screen basis-1/6 border-r border-gray-regular font-inter flex flex-col px-5 pt-4">
-      <div className="flex items-center gap-5 mb-9 pl-2">
+    <div className="basis-6/6 flex h-12 mt-6 flex-row font-inter md:h-screen md:border-r md:basis-1/6 md:border-gray-regular md:flex md:flex-col md:mt-0 md:justify-start md:px-5 md:pt-4">
+      <div className="hidden md:flex items-center gap-5 mb-9 pl-2">
         <ParrotIcon width={30} height={68} color="#E1E1E6" />
         <Text className="text-white font-bold">Parrot</Text>
       </div>
       {navItems.map((navItem) => (
         <NavItem.Root route={navItem.route} key={navItem.route}>
           <NavItem.Icon>{navItem.icon}</NavItem.Icon>
-          <Text className="text-white font-bold group-hover:text-gray-dark">
+          <Text className="hidden md:block text-white font-bold group-hover:text-gray-dark">
             {navItem.text}
           </Text>
         </NavItem.Root>
