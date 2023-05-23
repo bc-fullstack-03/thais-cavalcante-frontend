@@ -30,8 +30,11 @@ function PostItem({ post, onPostLiked }: PostItemProps) {
     <div className="border-b border-gray-regular pl-5 py-5">
       <div className="flex gap-1">
         <UserCircle size={64} weight="light" className="text-gray-light" />
-        <div className="flex flex-col gap-5">
+        <div className="flex flex-col gap-5 w-3/4">
           <Text className="text-white font-bold mt-3">{post.profile.name}</Text>
+          <Text size="md" className="text-gray-light font-bold">
+            {post.title}
+          </Text>
           {post.image ? (
             <img
               src={post.description}
