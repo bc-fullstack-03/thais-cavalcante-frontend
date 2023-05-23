@@ -1,7 +1,6 @@
 import { UserCircle, SignOut } from "@phosphor-icons/react";
 import Heading from "../Heading";
 import Text from "../Text";
-import Button from "../Button";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../service/mainAPI/auth";
 
