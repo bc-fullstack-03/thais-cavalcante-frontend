@@ -6,6 +6,8 @@ import Profile from "./pages/Profile";
 import Friends from "./pages/Friends";
 import PostPage from "./pages/PostPage";
 import RequiredAuth from "./components/RequiredAuth";
+import Following from "./pages/Following";
+import Followers from "./pages/Followers";
 
 export default function AppRoutes() {
   return (
@@ -42,6 +44,22 @@ export default function AppRoutes() {
           element={
             <RequiredAuth>
               <PostPage />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/following/:id"
+          element={
+            <RequiredAuth>
+              <Following />
+            </RequiredAuth>
+          }
+        />
+        <Route
+          path="/followers/:id"
+          element={
+            <RequiredAuth>
+              <Followers />
             </RequiredAuth>
           }
         />
