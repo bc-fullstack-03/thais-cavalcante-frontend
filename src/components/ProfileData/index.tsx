@@ -3,6 +3,7 @@ import Text from "../Text";
 import { useEffect, useState } from "react";
 import { getAuthHeader } from "../../services/auth";
 import { getProfile } from "../../services/profile";
+import { Link } from "react-router-dom";
 
 function ProfileData() {
   const authHeader = getAuthHeader();
@@ -31,15 +32,19 @@ function ProfileData() {
             <Text className="text-white font-bold">{user}</Text>
           </div>
           <div className="flex flex-col">
-            {profile.following && profile.following.length > 0 && (
-              <Text className="text-white font-bold">
-                Seguindo {profile.following.length}
-              </Text>
-            )}
             {profile.followers && profile.followers.length > 0 && (
-              <Text className="text-white font-bold">
-                {profile.followers.length} Seguidores
-              </Text>
+              <Link to={`/followers/${profile._id}`}>
+                <Text className="text-white font-bold hover:underline">
+                  {profile.followers.length} Seguidores
+                </Text>
+              </Link>
+            )}
+            {profile.following && profile.following.length > 0 && (
+              <Link to={`/following/${profile._id}`}>
+                <Text className="text-white font-bold hover:underline">
+                  Seguindo {profile.following.length}
+                </Text>
+              </Link>
             )}
           </div>
         </div>

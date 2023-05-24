@@ -4,6 +4,7 @@ import Button from "../Button";
 import { getAuthHeader } from "../../services/auth";
 import { followProfile } from "../../services/profile";
 import clsx from "clsx";
+import { Link } from "react-router-dom";
 
 interface ProfileItemProps {
   profile: Profile;
@@ -31,14 +32,18 @@ function ProfileItem({ profile, onUserFollowed }: ProfileItemProps) {
       </div>
       <div className="flex flex-col gap-2 ml-2 mb-5">
         {profile.followers.length > 0 && (
-          <Text size="sm" className="text-gray-light">
-            {profile.followers.length} Seguidores
-          </Text>
+          <Link to={`/followers/${profile._id}`}>
+            <Text size="sm" className="text-gray-light hover:underline">
+              {profile.followers.length} Seguidores
+            </Text>
+          </Link>
         )}
         {profile.following.length > 0 && (
-          <Text size="sm" className="text-gray-light">
-            Seguindo {profile.following.length}
-          </Text>
+          <Link to={`/following/${profile._id}`}>
+            <Text size="sm" className="text-gray-light hover:underline">
+              Seguindo {profile.following.length}
+            </Text>
+          </Link>
         )}
       </div>
       <Button
