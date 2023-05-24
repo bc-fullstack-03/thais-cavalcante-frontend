@@ -2,11 +2,7 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import { ParrotIcon } from "../ParrotIcon";
 import { TextInput } from "../TextInput";
-import {
-  EnvelopeSimple,
-  IdentificationCard,
-  Lock,
-} from "@phosphor-icons/react";
+import { At, IdentificationCard, Lock } from "@phosphor-icons/react";
 import { FormEvent } from "react";
 import Heading from "../Heading";
 import Text from "../Text";
@@ -84,16 +80,16 @@ function AuthForm({
           </div>
         )}
         <Text size="md" className="text-gray-light mb-2">
-          Endereço de e-mail
+          Seu usuário
         </Text>
         <TextInput.Root>
           <TextInput.Icon>
-            <EnvelopeSimple color="#7C7C8A" size={24} />
+            <At color="#7C7C8A" size={24} />
           </TextInput.Icon>
           <TextInput.Input
             id="user"
             type="text"
-            placeholder="Digite seu e-mail"
+            placeholder="Digite seu usuário"
           ></TextInput.Input>
         </TextInput.Root>
         <Text size="md" className="text-gray-light mb-2 mt-3">
