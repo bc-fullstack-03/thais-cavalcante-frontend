@@ -37,7 +37,7 @@ function UpdatePassword() {
   return (
     <div className="px-5 mt-4 w-full md:w-3/4">
       <Heading className="mb-5">Atualizar Senha</Heading>
-      <form className="flex flex-col min-w-login">
+      <form className="flex flex-col w-full">
         <Text size="md" className="text-gray-light mb-2">
           Sua Nova Senha
         </Text>

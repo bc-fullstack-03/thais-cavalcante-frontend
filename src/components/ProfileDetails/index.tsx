@@ -17,7 +17,7 @@ function ProfileDetails() {
   return (
     <div className="basis-5/6 overflow-y-auto scroll-smooth">
       <div className="border-b border-gray-regular pl-5 mt-4">
-        <div className="w-3/4">
+        <div className="w-full md:w-3/4">
           <div className="flex justify-between">
             <Heading>Perfil</Heading>
             <div

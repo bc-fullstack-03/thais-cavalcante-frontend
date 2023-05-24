@@ -20,18 +20,16 @@ function ProfileData() {
     fetchProfile();
   }, []);
 
-  console.log(profile);
-
   return (
     <>
       {profile && (
-        <div className="flex gap-7 mt-4 mb-6">
+        <div className="flex flex-wrap gap-7 mt-4 mb-6">
           <UserCircle size={64} weight="light" className="text-gray-light" />
-          <div className="flex flex-col">
+          <div className="flex flex-col gap-2">
             <Text className="text-white font-bold">{profile.name}</Text>
             <Text className="text-white font-bold">{user}</Text>
           </div>
-          <div className="flex flex-col">
+          <div className="flex gap-2 md:flex-col">
             {profile.followers && profile.followers.length > 0 && (
               <Link to={`/followers/${profile._id}`}>
                 <Text className="text-white font-bold hover:underline">
