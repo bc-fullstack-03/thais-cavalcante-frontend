@@ -8,6 +8,7 @@ import { useEffect, useContext, useState, useRef } from "react";
 import Text from "../Text";
 import Heading from "../Heading";
 import { FeedContext } from "../../contexts/FeedContext";
+import EmptyState from "../EmptyState";
 
 function Feed() {
   const user = localStorage.getItem("user");
@@ -84,6 +85,9 @@ function Feed() {
           </CaretCircleRight>
         )}
       </div>
+      {feed.length == 0 && (
+        <EmptyState message="Ainda não há postagens no seu feed." />
+      )}
     </div>
   );
 }

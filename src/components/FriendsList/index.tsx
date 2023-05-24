@@ -3,6 +3,7 @@ import Heading from "../Heading";
 import { getAuthHeader } from "../../service/auth";
 import ProfileItem from "../ProfileItem";
 import { getProfiles } from "../../service/profile";
+import EmptyState from "../EmptyState";
 
 function FriendsList() {
   const authHeader = getAuthHeader();
@@ -36,6 +37,9 @@ function FriendsList() {
             onUserFollowed={handleFriendsChanged}
           />
         ))}
+      {profiles.length == 0 && (
+        <EmptyState message="Ainda não há perfis para serem seguidos." />
+      )}
     </div>
   );
 }
