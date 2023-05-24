@@ -41,7 +41,7 @@ function PostDetails() {
             .map((comment) => (
               <Comment
                 comment={comment}
-                onCommentLiked={handlePostChanged}
+                onCommentChanged={handlePostChanged}
                 key={comment._id}
               />
             ))}

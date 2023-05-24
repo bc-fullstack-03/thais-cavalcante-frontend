@@ -1,14 +1,19 @@
-import { UserCircle, Heart } from "@phosphor-icons/react";
+import { useContext } from "react";
+import { UserCircle, Heart, Trash } from "@phosphor-icons/react";
 import Text from "../Text";
 import { getAuthHeader } from "../../services/auth";
-import { likePostComment, unlikePostComment } from "../../services/post";
+import {
+  deleteComment,
+  likePostComment,
+  unlikePostComment,
+} from "../../services/post";
 
 interface CommentProps {
   comment: Comment;
-  onCommentLiked: () => void;
+  onCommentChanged: () => void;
 }
 
-function Comment({ comment, onCommentLiked }: CommentProps) {
+function Comment({ comment, onCommentChanged }: CommentProps) {
   const loggedInUser = localStorage.getItem("profile") as string;
   const authHeader = getAuthHeader();
   const postId = comment.post;
@@ -23,14 +28,19 @@ function Comment({ comment, onCommentLiked }: CommentProps) {
       await likePostComment(postId, commentId, authHeader);
     }
 
-    onCommentLiked();
+    onCommentChanged();
+  }
+
+  async function handleDeleteComment() {
+    await deleteComment(postId, commentId, authHeader);
+    onCommentChanged();
   }
 
   return (
     <>
       {comment && (
-        <div className="border-b border-gray-regular pl-5 py-5">
-          <div className="flex gap-1">
+        <div className="border-b border-gray-regular p-5">
+          <div className="flex gap-1 w-full md:w-3/4">
             <UserCircle size={64} weight="light" className="text-gray-light" />
             <div className="flex flex-col gap-5">
               <Text className="text-white font-bold mt-3">
@@ -60,6 +70,13 @@ function Comment({ comment, onCommentLiked }: CommentProps) {
               </footer>
             </div>
           </div>
+          {loggedInUser == comment.profile._id && (
+            <Trash
+              size={32}
+              className="text-gray-regular cursor-pointer"
+              onClick={handleDeleteComment}
+            />
+          )}
         </div>
       )}
     </>

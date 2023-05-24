@@ -54,6 +54,18 @@ export async function createCommentToPost(
   }
 }
 
+export async function deleteComment(
+  postId: string,
+  commentId: string,
+  authHeader: AuthHeader
+) {
+  try {
+    await api.delete(`/posts/${postId}/comments/${commentId}`, authHeader);
+  } catch (err) {
+    alert("Erro ao deletar comentário");
+  }
+}
+
 export async function likePost(postId: string, authHeader: AuthHeader) {
   try {
     await api.post(`/posts/${postId}/like`, null, authHeader);
