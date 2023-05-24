@@ -9,6 +9,15 @@ export async function getProfiles(authHeader: AuthHeader) {
   }
 }
 
+export async function getProfile(profileId: string, authHeader: AuthHeader) {
+  try {
+    const { data } = await api.get(`/profiles/${profileId}`, authHeader);
+    return data;
+  } catch (err) {
+    alert("Erro ao obter dados do perfil.");
+  }
+}
+
 export async function followProfile(profileId: string, authHeader: AuthHeader) {
   try {
     await api.post(`/profiles/${profileId}/follow`, null, authHeader);
