@@ -27,6 +27,14 @@ export async function createPost(post: FormData, authHeader: AuthHeader) {
   }
 }
 
+export async function deletePost(id: string, authHeader: AuthHeader) {
+  try {
+    await api.delete(`/posts/${id}`, authHeader);
+  } catch (err) {
+    alert("Erro ao deletar post");
+  }
+}
+
 export async function createCommentToPost(
   postId: string,
   commentDescription: string,

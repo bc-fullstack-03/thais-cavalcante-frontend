@@ -3,6 +3,7 @@ interface Post {
   title: string;
   description: string;
   profile: {
+    _id: string;
     name: string;
   };
   comments: Comment[];

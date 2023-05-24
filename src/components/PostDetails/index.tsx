@@ -30,7 +30,7 @@ function PostDetails() {
   return (
     <div className="basis-5/6 overflow-y-auto scroll-smooth">
       <Heading className="pl-5 mt-4">Post</Heading>
-      {post && <PostItem post={post} onPostLiked={handlePostChanged} />}
+      {post && <PostItem post={post} onPostChanged={handlePostChanged} />}
       <CreateComment onCommentCreated={handlePostChanged} />
       <Heading className="pl-5 mt-4">Comentários</Heading>
       {post && post.comments.length > 0 && (

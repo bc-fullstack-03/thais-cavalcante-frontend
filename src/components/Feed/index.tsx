@@ -60,7 +60,7 @@ function Feed() {
           <PostItem
             post={post}
             key={post._id}
-            onPostLiked={() => getFeed(currentPage)}
+            onPostChanged={() => getFeed(currentPage)}
           />
         ))}
       <div className="flex justify-center gap-3 my-3">
