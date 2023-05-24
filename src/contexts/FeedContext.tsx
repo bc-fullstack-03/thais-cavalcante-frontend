@@ -1,6 +1,6 @@
 import React, { createContext, useState, ReactNode } from "react";
-import { getAuthHeader } from "../service/auth";
-import { getPosts } from "../service/post";
+import { getAuthHeader } from "../services/auth";
+import { getPosts } from "../services/post";
 
 interface FeedContextData {
   feed: Post[];

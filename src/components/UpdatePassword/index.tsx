@@ -4,8 +4,8 @@ import Button from "../Button";
 import Heading from "../Heading";
 import Text from "../Text";
 import { TextInput } from "../TextInput";
-import { getAuthHeader } from "../../service/auth";
-import { updateUser } from "../../service/user";
+import { getAuthHeader } from "../../services/auth";
+import { updateUser } from "../../services/user";
 
 function UpdatePassword() {
   const authHeader = getAuthHeader();

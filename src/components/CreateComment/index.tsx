@@ -3,8 +3,8 @@ import Button from "../Button";
 import Heading from "../Heading";
 import { TextInput } from "../TextInput";
 import { useParams } from "react-router-dom";
-import { getAuthHeader } from "../../service/auth";
-import { createCommentToPost } from "../../service/post";
+import { getAuthHeader } from "../../services/auth";
+import { createCommentToPost } from "../../services/post";
 
 interface CreateCommentProps {
   onCommentCreated: () => void;

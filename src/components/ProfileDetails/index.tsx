@@ -3,7 +3,7 @@ import Heading from "../Heading";
 import Text from "../Text";
 import { useNavigate } from "react-router-dom";
 import UpdatePassword from "../UpdatePassword";
-import { logOut } from "../../service/auth";
+import { logOut } from "../../services/auth";
 
 function ProfileDetails() {
   const user = localStorage.getItem("user");
