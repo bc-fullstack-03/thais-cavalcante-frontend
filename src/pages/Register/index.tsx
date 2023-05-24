@@ -26,6 +26,7 @@ function Register() {
       routeName="/"
       authFormFooter="Já possui conta? Faça login!
   "
+      isRegister
     />
   );
 }

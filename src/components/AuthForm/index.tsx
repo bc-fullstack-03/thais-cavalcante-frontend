@@ -2,12 +2,17 @@ import { Link } from "react-router-dom";
 import Button from "../Button";
 import { ParrotIcon } from "../ParrotIcon";
 import { TextInput } from "../TextInput";
-import { EnvelopeSimple, Lock } from "@phosphor-icons/react";
+import {
+  EnvelopeSimple,
+  IdentificationCard,
+  Lock,
+} from "@phosphor-icons/react";
 import { FormEvent } from "react";
 import Heading from "../Heading";
 import Text from "../Text";
 
 interface AuthFormElements extends HTMLFormControlsCollection {
+  name: HTMLInputElement;
   user: HTMLInputElement;
   password: HTMLInputElement;
 }
@@ -22,6 +27,7 @@ interface AuthFormProps {
   submitFormButtonAction: (auth: Auth) => void;
   routeName: string;
   authFormFooter: string;
+  isRegister?: boolean;
 }
 
 function AuthForm({
@@ -30,15 +36,23 @@ function AuthForm({
   submitFormButtonAction,
   routeName,
   authFormFooter,
+  isRegister,
 }: AuthFormProps) {
   function handleSubmit(event: FormEvent<AuthFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
+    let auth: Auth;
 
-    const auth = {
-      user: form.elements.user.value,
-      password: form.elements.password.value,
-    };
+    isRegister
+      ? (auth = {
+          name: form.elements.name.value,
+          user: form.elements.user.value,
+          password: form.elements.password.value,
+        })
+      : (auth = {
+          user: form.elements.user.value,
+          password: form.elements.password.value,
+        });
 
     submitFormButtonAction(auth);
   }
@@ -52,6 +66,23 @@ function AuthForm({
         {authFormTitle}
       </Text>
       <form onSubmit={handleSubmit} className="flex flex-col min-w-login mt-12">
+        {isRegister && (
+          <div className="mb-3">
+            <Text size="md" className="text-gray-light mb-2">
+              Seu nome
+            </Text>
+            <TextInput.Root>
+              <TextInput.Icon>
+                <IdentificationCard color="#7C7C8A" size={24} />
+              </TextInput.Icon>
+              <TextInput.Input
+                id="name"
+                type="text"
+                placeholder="Digite seu nome"
+              ></TextInput.Input>
+            </TextInput.Root>
+          </div>
+        )}
         <Text size="md" className="text-gray-light mb-2">
           Endereço de e-mail
         </Text>
