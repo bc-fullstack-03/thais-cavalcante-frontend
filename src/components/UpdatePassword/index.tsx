@@ -6,11 +6,14 @@ import Text from "../Text";
 import { TextInput } from "../TextInput";
 import { getAuthHeader } from "../../services/auth";
 import { updateUser } from "../../services/user";
+import { useNavigate } from "react-router-dom";
 
 function UpdatePassword() {
   const authHeader = getAuthHeader();
   const [newPassword, setNewPassword] = useState<string>("");
   const [repeatedNewPassword, setRepeatedNewPassword] = useState<string>("");
+  const loggedInUser = localStorage.getItem("user") as string;
+  const navigate = useNavigate();
 
   function handleNewPasswordChange(event: ChangeEvent<HTMLInputElement>) {
     setNewPassword(event.target.value);
@@ -23,21 +26,27 @@ function UpdatePassword() {
   }
 
   const auth = {
-    user: localStorage.getItem("user") as string,
+    user: loggedInUser,
     password: newPassword,
   };
 
-  async function handleUpdatePassword() {
-    if (newPassword == repeatedNewPassword) {
-      await updateUser(auth, authHeader);
+  async function handleUpdatePassword(event: React.FormEvent) {
+    event.preventDefault();
+    if (newPassword != repeatedNewPassword) {
+      alert("Senhas são incompatíveis");
+    } else {
+      const userUpdated = await updateUser(auth, authHeader);
+      if (userUpdated) {
+        alert("Senha alterada com sucesso, faça o login novamente");
+        navigate("/");
+      }
     }
-    alert("Senhas são incompatíveis");
   }
 
   return (
     <div className="px-5 mt-4 w-full md:w-3/4">
       <Heading className="mb-5">Atualizar Senha</Heading>
-      <form className="flex flex-col w-full">
+      <form className="flex flex-col w-full" onSubmit={handleUpdatePassword}>
         <Text size="md" className="text-gray-light mb-2">
           Sua Nova Senha
         </Text>
@@ -66,9 +75,7 @@ function UpdatePassword() {
           ></TextInput.Input>
         </TextInput.Root>
         <div className="text-end">
-          <Button className="w-1/3 mt-5" onClick={handleUpdatePassword}>
-            Adicionar
-          </Button>
+          <Button className="w-1/3 mt-5">Adicionar</Button>
         </div>
       </form>
     </div>
