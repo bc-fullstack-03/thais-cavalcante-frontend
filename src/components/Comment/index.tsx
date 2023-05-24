@@ -1,4 +1,3 @@
-import { useContext } from "react";
 import { UserCircle, Heart, Trash } from "@phosphor-icons/react";
 import Text from "../Text";
 import { getAuthHeader } from "../../services/auth";
