@@ -22,7 +22,7 @@ function ProfileDetails() {
             <Heading>Perfil</Heading>
             <div
               onClick={handleLogout}
-              className="flex gap-1 items-center rounded-full px-5 hover:bg-cyan-regular group"
+              className="flex gap-1 items-center rounded-full px-5 hover:bg-cyan-regular cursor-pointer group"
             >
               <SignOut
                 size={38}

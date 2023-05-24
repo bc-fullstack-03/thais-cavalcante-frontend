@@ -38,10 +38,10 @@ function Comment({ comment, onCommentChanged }: CommentProps) {
   return (
     <>
       {comment && (
-        <div className="border-b border-gray-regular p-5">
+        <div className="border-b border-gray-regular p-5 flex justify-between">
           <div className="flex gap-1 w-full md:w-3/4">
             <UserCircle size={64} weight="light" className="text-gray-light" />
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-5 w-3/4">
               <Text className="text-white font-bold mt-3">
                 {comment.profile.name}
               </Text>
@@ -70,11 +70,13 @@ function Comment({ comment, onCommentChanged }: CommentProps) {
             </div>
           </div>
           {loggedInUser == comment.profile._id && (
-            <Trash
-              size={32}
-              className="text-gray-regular cursor-pointer"
-              onClick={handleDeleteComment}
-            />
+            <div className="w-1/8">
+              <Trash
+                size={32}
+                className="text-gray-regular cursor-pointer"
+                onClick={handleDeleteComment}
+              />
+            </div>
           )}
         </div>
       )}
