@@ -1,5 +1,6 @@
 interface User {
-  user: email;
+  user: string;
+  password: string;
   profile: {
     name: string;
     user: string;
