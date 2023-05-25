@@ -55,6 +55,7 @@ https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/777
 <a name="features"></a>
 ## 📖 Features
 
+- Responsividade das páginas;
 - Criação Usuário;
 - Login de Usuário;
 - Detalhes do Usuário;
@@ -83,6 +84,10 @@ https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/777
 - TypeScript
 - ReactJS
 - Tailwind CSS
+- Axios
+- React Router
+- Radix Ui
+- Phosphor Icons
 
 <br />
 
