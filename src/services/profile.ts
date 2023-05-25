@@ -5,7 +5,7 @@ export async function getProfiles(authHeader: AuthHeader) {
     const { data } = await api.get("/profiles", authHeader);
     return data;
   } catch (err) {
-    alert("Erro ao obter os perfis.");
+    throw err;
   }
 }
 
@@ -14,7 +14,7 @@ export async function getProfile(profileId: string, authHeader: AuthHeader) {
     const { data } = await api.get(`/profiles/${profileId}`, authHeader);
     return data;
   } catch (err) {
-    alert("Erro ao obter dados do perfil.");
+    throw err;
   }
 }
 

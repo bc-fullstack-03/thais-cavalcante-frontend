@@ -5,7 +5,7 @@ export async function getPosts(page: number, authHeader: AuthHeader) {
     const { data } = await api.get(`/feed?page=${page}`, authHeader);
     return data;
   } catch (err) {
-    alert("Erro ao obter Feed.");
+    throw err;
   }
 }
 
@@ -14,7 +14,7 @@ export async function getPost(id: string, authHeader: AuthHeader) {
     const { data } = await api.get(`/posts/${id}`, authHeader);
     return data;
   } catch (err) {
-    alert("Erro ao obter Post.");
+    throw err;
   }
 }
 
