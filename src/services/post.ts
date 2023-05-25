@@ -27,6 +27,19 @@ export async function createPost(post: FormData, authHeader: AuthHeader) {
   }
 }
 
+export async function updatePost(
+  id: string,
+  post: FormData,
+  authHeader: AuthHeader
+) {
+  try {
+    const { data } = await api.put(`/posts/${id}`, post, authHeader);
+    return data;
+  } catch (err) {
+    alert("Erro ao tentar atualizar post");
+  }
+}
+
 export async function deletePost(id: string, authHeader: AuthHeader) {
   try {
     await api.delete(`/posts/${id}`, authHeader);
