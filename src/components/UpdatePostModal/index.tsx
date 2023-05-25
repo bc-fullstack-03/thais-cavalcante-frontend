@@ -90,7 +90,7 @@ function UpdatePostModal({ setIsModalOpen, post }: UpdatePostModalProps) {
       <Dialog.Overlay className="bg-gray-dark/60 inset-0 fixed" />
       <Dialog.Content className="fixed bg-black pb-8 px-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 rounded-lg w-96 shadow-lg shadow-black/25">
         <div className="flex justify-between">
-          <Heading className="mt-8">Novo Post</Heading>
+          <Heading className="mt-8">Atualizar Post</Heading>
           <Dialog.Close>
             <X size={24} className="text-gray-light text-right" />
           </Dialog.Close>
@@ -154,7 +154,7 @@ function UpdatePostModal({ setIsModalOpen, post }: UpdatePostModalProps) {
             </>
           )}
           <Button type="submit" className="mt-9">
-            Criar post
+            Atualizar
           </Button>
         </form>
       </Dialog.Content>
