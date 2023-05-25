@@ -26,7 +26,17 @@
 
 
 
-https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/7d484da6-5aac-42d0-881f-a103e763dc73
+https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/8e955195-67a6-4807-8ce5-94055ed94afb
+
+
+https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/1cd0e278-11c0-45d6-be24-75a00ec15edb
+
+
+
+https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/777bb275-161a-4a9c-99a6-f6b8e773f872
+
+
+
 
 ![prints](https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/ba2c2feb-eef7-44b1-8719-172a76c8e39b)
 
@@ -45,6 +55,24 @@ https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/7d4
 <a name="features"></a>
 ## 📖 Features
 
+- Criação Usuário;
+- Login de Usuário;
+- Detalhes do Usuário;
+- Atualizar senha de Usuário;
+- Paginação de feed;
+- Criação de Post;
+- Like de Post;
+- Remover like de Post;
+- Remoção de Post;
+- Atualização de Post;
+- Listagem de amigos;
+- Listagem de Following;
+- Listagem de Followers;
+- Seguir Perfil;
+- Criação de Comentário;
+- Remoção de Comentário;
+- Like de Comentário;
+- Remover like de Comentário.
 
 
 <br />
