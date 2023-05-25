@@ -1,9 +1,12 @@
-import { UserCircle, Chat, Heart, Trash } from "@phosphor-icons/react";
+import { useState } from "react";
+import { UserCircle, Chat, Heart, Trash, Pencil } from "@phosphor-icons/react";
 import Text from "../Text";
 import { Link } from "react-router-dom";
 import { getAuthHeader } from "../../services/auth";
 import { deletePost, likePost, unlikePost } from "../../services/post";
 import { useNavigate } from "react-router-dom";
+import * as Dialog from "@radix-ui/react-dialog";
+import UpdatePostModal from "../UpdatePostModal";
 
 interface PostItemProps {
   post: Post;
@@ -33,6 +36,8 @@ function PostItem({ post, onPostChanged }: PostItemProps) {
     onPostChanged();
     navigate("/home");
   }
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
     <div className="border-b border-gray-regular p-5 flex justify-between">
@@ -81,12 +86,21 @@ function PostItem({ post, onPostChanged }: PostItemProps) {
         </div>
       </div>
       {loggedInUser == post.profile._id && (
-        <div className="w-1/8">
+        <div className="w-1/8 flex">
           <Trash
             size={32}
             className="text-gray-regular cursor-pointer"
             onClick={handleDeletePost}
           />
+          <Dialog.Root open={isModalOpen} onOpenChange={setIsModalOpen}>
+            <Dialog.Trigger className="h-8">
+              <Pencil
+                size={32}
+                className="text-gray-regular cursor-pointer"
+              ></Pencil>
+            </Dialog.Trigger>
+            <UpdatePostModal setIsModalOpen={setIsModalOpen} post={post} />
+          </Dialog.Root>
         </div>
       )}
     </div>
