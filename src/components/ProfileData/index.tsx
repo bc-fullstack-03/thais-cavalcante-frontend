@@ -27,7 +27,7 @@ function ProfileData() {
           <UserCircle size={64} weight="light" className="text-gray-light" />
           <div className="flex flex-col gap-2">
             <Text className="text-white font-bold">{profile.name}</Text>
-            <Text className="text-white font-bold">{user}</Text>
+            <Text className="text-white font-bold">@{user}</Text>
           </div>
           <div className="flex gap-2 md:flex-col">
             {profile.followers && profile.followers.length > 0 && (

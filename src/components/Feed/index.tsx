@@ -52,7 +52,7 @@ function Feed() {
         <Heading>Página Inicial</Heading>
         <div className="flex gap-1 items-center my-6">
           <UserCircle size={64} weight="light" className="text-gray-light" />
-          <Text className="text-white font-bold">{user}</Text>
+          <Text className="text-white font-bold">@{user}</Text>
         </div>
       </div>
       {feed &&
