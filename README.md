@@ -28,8 +28,8 @@
 
 https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/7d484da6-5aac-42d0-881f-a103e763dc73
 
+![prints](https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/ba2c2feb-eef7-44b1-8719-172a76c8e39b)
 
-![prints](https://github.com/bc-fullstack-03/thais-cavalcante-frontend/assets/94868398/4ff9d2f6-67f8-4246-840f-4e579c336c2f)
 
 <br />
 
