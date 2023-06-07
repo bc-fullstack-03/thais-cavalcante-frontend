@@ -147,7 +147,7 @@ npm install
 ### Running
 
 ```
-npm start
+npm run dev
 ```
 
 <br />
